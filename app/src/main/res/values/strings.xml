@@ -1,3 +1,44 @@
 <resources>
     <string name="app_name">PmaProject</string>
+    <string name="title_activity_login">Sign in</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_settings">Settings</string>
+    <string-array name="cities">
+        <item>Novi Sad</item>
+        <item>Beograd</item>
+        <item>Nis</item>
+        <item>Backa Palanka</item>
+    </string-array>
+
+    <string-array name="perimeter">
+        <item>1km</item>
+        <item>5km</item>
+        <item>10km</item>
+        <item>100km</item>
+    </string-array>
+
+    <string-array name="theme">
+        <item>theme1</item>
+        <item>theme2</item>
+        <item>theme3</item>
+    </string-array>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
 </resources>
