@@ -1,6 +1,7 @@
 package com.example.pmaproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,7 +56,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Log.d(TAG, "onClick: clicked on: " + mImageNames.get(position));
 
                 Toast.makeText(mContext, mImageNames.get(position), Toast.LENGTH_SHORT).show();
-
+        mContext.startActivity(new Intent(mContext, DetailsActivity.class));
             }
         });
     }
