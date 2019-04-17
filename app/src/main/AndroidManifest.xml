@@ -34,14 +34,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".MainActivity"></activity>
 
-=======
         <activity android:name=".MainActivity" >
 
         </activity>
->>>>>>> af1e164b34df2243a79df5d49d7efdc6be57f61e
     </application>
 
 </manifest>
