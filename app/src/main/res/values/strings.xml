@@ -15,6 +15,7 @@
     </string>
     <string name="title_activity_settings">Settings</string>
     <string-array name="cities">
+        <item>Choose the city</item>
         <item>Novi Sad</item>
         <item>Beograd</item>
         <item>Nis</item>
@@ -22,6 +23,7 @@
     </string-array>
 
     <string-array name="perimeter">
+        <item>Choose the perimeter</item>
         <item>1km</item>
         <item>5km</item>
         <item>10km</item>
@@ -29,6 +31,7 @@
     </string-array>
 
     <string-array name="theme">
+        <item>Choose the theme</item>
         <item>theme1</item>
         <item>theme2</item>
         <item>theme3</item>
