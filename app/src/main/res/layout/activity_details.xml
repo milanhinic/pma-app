@@ -8,7 +8,7 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/logo"
-        android:layout_width="263dp"
+        android:layout_width="match_parent"
         android:layout_height="88dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/planet_sport_logo" />
@@ -27,7 +27,7 @@
         android:src="@drawable/shake_phone" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/address"
         android:layout_width="392dp"
         android:layout_height="59dp"
         android:layout_alignParentEnd="true"
@@ -36,11 +36,11 @@
         android:layout_marginEnd="0dp"
         android:layout_marginRight="211dp"
         android:layout_marginBottom="428dp"
-        android:text="Bulevar Oslobodjenja 133, Novi Sad"
+        android:text="@string/address"
         android:textSize="22sp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/lblContact"
         android:layout_width="126dp"
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
@@ -49,12 +49,12 @@
         android:layout_marginEnd="264dp"
         android:layout_marginRight="211dp"
         android:layout_marginBottom="389dp"
-        android:text="Contact:"
+        android:text="@string/lbl_contact"
         android:textSize="25sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/lblAddress"
         android:layout_width="133dp"
         android:layout_height="36dp"
         android:layout_alignParentEnd="true"
@@ -63,7 +63,7 @@
         android:layout_marginEnd="258dp"
         android:layout_marginRight="211dp"
         android:layout_marginBottom="483dp"
-        android:text="Address:"
+        android:text="@string/lbl_address"
         android:textSize="22sp"
         android:textStyle="bold" />
 
@@ -77,11 +77,11 @@
         android:layout_marginEnd="211dp"
         android:layout_marginRight="211dp"
         android:layout_marginBottom="351dp"
-        android:text="+381/21-345932"
+        android:text="@string/contact_number"
         android:textSize="22sp" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/shakeText"
         android:layout_width="228dp"
         android:layout_height="53dp"
         android:layout_alignParentEnd="true"
@@ -90,11 +90,11 @@
         android:layout_marginEnd="23dp"
         android:layout_marginRight="23dp"
         android:layout_marginBottom="197dp"
-        android:text="Shake off your phone to see our discounts only for you!"
+        android:text="@string/shakeText"
         android:textAllCaps="true" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/callImage"
         android:layout_width="54dp"
         android:layout_height="50dp"
         android:layout_alignParentEnd="true"
@@ -106,6 +106,5 @@
         android:onClick="call"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/calll" />
-
 
 </RelativeLayout>

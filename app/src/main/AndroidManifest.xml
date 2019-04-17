@@ -32,13 +32,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity android:name=".MainActivity"></activity>
-=======
-        <activity android:name=".MainActivity" >
 
-        </activity>
->>>>>>> 293bb329baf31da240d30b43b1b1cf419a03e0c8
     </application>
 
 </manifest>
