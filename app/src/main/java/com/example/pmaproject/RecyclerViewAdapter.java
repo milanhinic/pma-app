@@ -55,8 +55,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View view) {
                 Log.d(TAG, "onClick: clicked on: " + mImageNames.get(position));
 
-                Toast.makeText(mContext, mImageNames.get(position), Toast.LENGTH_SHORT).show();
-        mContext.startActivity(new Intent(mContext, DetailsActivity.class));
+//                Toast.makeText(mContext, mImageNames.get(position), Toast.LENGTH_SHORT).show();
+                mContext.startActivity(new Intent(mContext, DetailsActivity.class));
             }
         });
     }
