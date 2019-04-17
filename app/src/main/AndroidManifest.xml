@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".DetailsActivity"></activity>
+        <activity android:name=".ListViewActivity"></activity>
         <activity
             android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation"
@@ -32,8 +34,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".MainActivity"></activity>
 
+=======
+        <activity android:name=".MainActivity" >
+
+        </activity>
+>>>>>>> af1e164b34df2243a79df5d49d7efdc6be57f61e
     </application>
 
 </manifest>
