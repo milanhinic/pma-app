@@ -39,7 +39,7 @@
                     android:id="@+id/city"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Choose the city"
+                    android:text=""
                     android:textSize="22sp"
                     android:layout_alignParentLeft="true"
 
@@ -62,7 +62,7 @@
                     android:id="@+id/perimeter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Choose the perimeter"
+                    android:text=""
                     android:textSize="22sp"
                     android:layout_alignParentLeft="true"
 
@@ -85,7 +85,7 @@
                     android:id="@+id/theme"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Choose the theme"
+                    android:text=""
                     android:textSize="22sp"
                     android:layout_alignParentLeft="true"
 
