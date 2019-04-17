@@ -115,13 +115,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:background="@drawable/button_profile"
+                android:onClick="open_details"
                 android:text="Register"
                 android:textColor="#FFF"
                 android:textSize="22sp"
-                android:background="@drawable/button_profile"
-                android:textStyle="bold"
 
-                />
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
