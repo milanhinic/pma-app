@@ -90,7 +90,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+
+                btn_sign_up(view);
+               // attemptLogin();
             }
         });
 
@@ -284,6 +286,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     public void test_register(View view) {
             startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
 
+    }
+
+    public void btn_sign_up(View view) {
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
 
 

@@ -15,7 +15,8 @@
         <item
             android:id="@+id/settings_nav"
             android:icon="@drawable/ic_settings_black_24dp"
-            android:title="Settings" />
+            android:title="Settings"
+            />
 
     </group>
 

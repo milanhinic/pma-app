@@ -1,5 +1,6 @@
 package com.example.pmaproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -72,7 +73,7 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_help) {
             return true;
         }
 
@@ -98,4 +99,9 @@ public class NavigationActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    /*public void btn_settings(View view) {
+        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+
+    }*/
 }
