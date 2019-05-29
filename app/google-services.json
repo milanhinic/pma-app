@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "925703593692",
+    "firebase_url": "https://pma-database-8535a.firebaseio.com",
+    "project_id": "pma-database-8535a",
+    "storage_bucket": "pma-database-8535a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925703593692:android:51bf1698b57e18e8",
+        "android_client_info": {
+          "package_name": "com.example.pmaproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "925703593692-qnjg5cauv1bmjago93ucqna58grvjbt0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgCVu0Vz-oP5o-_IOSzJ6gT6ObHzGLnPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "925703593692-qnjg5cauv1bmjago93ucqna58grvjbt0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
