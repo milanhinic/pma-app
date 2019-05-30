@@ -4,25 +4,40 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
 
+import com.example.pmaproject.firebase.APICalls;
+import com.example.pmaproject.models.Store;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.List;
+
+import static com.example.pmaproject.firebase.APICalls.getInstance;
 
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
+
     private GoogleMap mMap;
+    List<Store> stores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        stores = APICalls.getInstance().getStores();
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
     }
 
 
@@ -39,9 +54,18 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
         // Add a marker in Sydney and move the camera
         LatLng noviSad = new LatLng(45.255180, 19.845122);
         mMap.addMarker(new MarkerOptions().position(noviSad).title("Marker in Novi Sad"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(noviSad));
     }
+
+    public void setMarkers(GoogleMap mMap) {
+        for(Store store : stores) {
+
+        }
+
+    }
 }
+
