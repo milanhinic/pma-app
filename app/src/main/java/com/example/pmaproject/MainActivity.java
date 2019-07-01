@@ -19,11 +19,17 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import com.example.pmaproject.database.ApplicationDatabase;
+import com.example.pmaproject.database.entity.DBUser;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
+
+
+    private ApplicationDatabase ad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+        ad = ApplicationDatabase.getInstance(this);
+
+        /*
+        DBUser user = new DBUser.Builder((long) 0)
+                                        .setFirstName("Milan")
+                                        .setLastName("Hinic")
+                                        .setEmail("mm@gmail.com")
+                                        .setPassword("goo")
+                                        .setDefaultCity(1)
+                                        .setPerimetar(30)
+                                        .build();
+
+        try {
+            ad.dbUserDao().insertUser(user);
+        } catch (Exception e) {
+
+        }
+
+        List<DBUser> users = ad.dbUserDao().getAll();
+
+        */
     }
 
 
