@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ArrayList<String> mImageUrls = new ArrayList<>();
 
 
-
-
     private ApplicationDatabase ad;
 
     @Override
@@ -61,7 +59,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
 
+        List<DBUser> users = ad.dbUserDao().getAll();
 
+        */
     }
 
 
