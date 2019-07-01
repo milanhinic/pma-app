@@ -35,7 +35,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:src="@drawable/account"
+                android:src="@drawable/user"
                 android:padding="30dp"/>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -81,12 +81,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Sign in"
-                android:textSize="22sp"
-                android:textColor="#FFF"
-                android:background="@drawable/button_profile"
-                android:textStyle="bold"
+                android:backgroundTint="#ffd633"
                 android:onClick="btn_sign_up"
+                android:text="Sign in"
+                android:textColor="#527a7a"
+                android:textSize="22sp"
+                android:textStyle="bold"
 
                 />
 
@@ -96,12 +96,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Register"
-                android:textSize="22sp"
-                android:textColor="#FFF"
-                android:background="@drawable/button_profile"
-                android:textStyle="bold"
+                android:backgroundTint="#ffd633"
                 android:onClick="test_register"
+                android:text="Register"
+                android:textColor="#527a7a"
+                android:textSize="22sp"
+                android:textStyle="bold"
 
                 />
 

@@ -46,13 +46,8 @@
                     />
                 <Spinner
                     android:id="@+id/spinner1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-
-
-                    >
-                </Spinner>
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -109,11 +104,9 @@
                 android:layout_marginTop="16dp"
                 android:text="Submit"
                 android:textSize="22sp"
-                android:textColor="#FFF"
-                android:background="@drawable/button_profile"
+                android:textColor="#527a7a"
+                android:backgroundTint="#ffd633"
                 android:textStyle="bold"
-
-
                 />
 
         </LinearLayout>

@@ -115,10 +115,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/button_profile"
+                android:backgroundTint="#ffd633"
                 android:onClick="log_in"
                 android:text="Register"
-                android:textColor="#FFF"
+                android:textColor="#527a7a"
                 android:textSize="22sp"
 
                 android:textStyle="bold" />
