@@ -15,7 +15,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
     }
 
-    public void open_details(View view) {
-        startActivity(new Intent(getApplicationContext(), DetailsActivity.class));
+    public void log_in(View view) {
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }
 }
