@@ -87,10 +87,11 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.list_nav) {
-            // Handle the camera action
+            startActivity(new Intent(getApplicationContext(), ListViewActivity.class));
         } else if (id == R.id.map_nav) {
-
+            startActivity(new Intent(getApplicationContext(), MapActivity.class));
         } else if (id == R.id.settings_nav) {
+            startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
 
         } else if (id == R.id.account_nav) {
 
