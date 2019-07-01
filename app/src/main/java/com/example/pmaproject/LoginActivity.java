@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 
+import com.example.pmaproject.database.ApplicationDatabase;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +38,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
+
+import com.example.pmaproject.database.entity.DBUser;
 
 /**
  * A login screen that offers login via email/password.
@@ -92,7 +95,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             public void onClick(View view) {
 
                 btn_sign_up(view);
-               // attemptLogin();
+                attemptLogin();
             }
         });
 
@@ -181,10 +184,35 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             cancel = true;
         }
 
+        ApplicationDatabase ad;
+        ad = ApplicationDatabase.getInstance(this);
+
+        List<DBUser> users = ad.dbUserDao().getAll();
+        for(DBUser user: users){
+            if(user.getEmail()==email){
+                if(user.getPassword()==password){
+                    cancel = false;
+                    break;
+                }
+                else{
+                    cancel = true;
+                }
+            }
+            else{
+                cancel = true;
+            }
+
+
+        }
+
         if (cancel) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
-            focusView.requestFocus();
+           // focusView = mLoginFormView;
+            //focusView.requestFocus();
+
+            startActivity(new Intent(this, LoginActivity.class));
+
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.

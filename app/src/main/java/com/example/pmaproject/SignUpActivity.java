@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 
+import com.example.pmaproject.database.ApplicationDatabase;
+import com.example.pmaproject.database.entity.DBUser;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -16,6 +20,38 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void log_in(View view) {
+
+        ApplicationDatabase ad;
+        ad = ApplicationDatabase.getInstance(this);
+
+        AutoCompleteTextView mFirstView;
+        AutoCompleteTextView mLastView;
+        AutoCompleteTextView mEmailView;
+        EditText mPasswordView;
+
+        mFirstView = (AutoCompleteTextView) findViewById(R.id.first_name);
+        mLastView = (AutoCompleteTextView) findViewById(R.id.last_name);
+        mEmailView = (AutoCompleteTextView) findViewById(R.id.email_reg);
+        mPasswordView = (EditText) findViewById(R.id.password_reg);
+
+
+        DBUser user = new DBUser.Builder((long) 0)
+                                        .setFirstName(mFirstView.toString())
+                                        .setLastName(mLastView.toString())
+                                        .setEmail(mEmailView.toString())
+                                        .setPassword(mPasswordView.toString())
+                                        .setDefaultCity(1)
+                                        .setPerimetar(30)
+                                        .build();
+
+        try {
+            ad.dbUserDao().insertUser(user);
+        } catch (Exception e) {
+
+        }
+
+
+
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }
 }
