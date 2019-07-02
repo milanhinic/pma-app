@@ -18,16 +18,16 @@ import java.util.Random;
 
 public class DetailsActivity extends AppCompatActivity {
 
-    private SensorManager mSensorManager;
+    /*private SensorManager mSensorManager;
     private Sensor gyroscopeSensor;
-    private SensorEventListener sensorEventListener;
+    private SensorEventListener sensorEventListener;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_details);
 
-        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+       /* mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         gyroscopeSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
 
         if (gyroscopeSensor == null) {
@@ -59,25 +59,25 @@ public class DetailsActivity extends AppCompatActivity {
             public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
             }
-        };
+        };*/
     }
 
     @Override
     protected void onResume(){
         super.onResume();
-        mSensorManager.registerListener(sensorEventListener, gyroscopeSensor, SensorManager.SENSOR_DELAY_FASTEST);
+       // mSensorManager.registerListener(sensorEventListener, gyroscopeSensor, SensorManager.SENSOR_DELAY_FASTEST);
     }
 
     @Override
     protected  void onPause(){
         super.onPause();
-        mSensorManager.unregisterListener(sensorEventListener);
+        //mSensorManager.unregisterListener(sensorEventListener);
     }
 
-    public void call(View view) {
+    /*public void call(View view) {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         TextView textView = findViewById(R.id.phone_number);
         intent.setData(Uri.parse("tel:"+ textView.getText().toString()));
         startActivity(intent);
-    }
+    }*/
 }
