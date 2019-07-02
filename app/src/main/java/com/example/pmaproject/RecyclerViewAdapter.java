@@ -2,6 +2,7 @@ package com.example.pmaproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,6 +64,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 //                Toast.makeText(mContext, mImageNames.get(position), Toast.LENGTH_SHORT).show();
 //                mContext.startActivity(new Intent(mContext, DetailsActivity.class));
                 Fragment f = new DetailsFragment();
+                Bundle args = new Bundle();
+                args.putInt("index", position+1);
+                f.setArguments(args);
                 FragmentManager fm = ((AppCompatActivity)mContext).getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.addToBackStack(null);

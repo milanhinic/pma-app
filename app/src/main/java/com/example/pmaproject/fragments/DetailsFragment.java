@@ -22,7 +22,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pmaproject.R;
+import com.example.pmaproject.database.ApplicationDatabase;
+import com.example.pmaproject.database.entity.DBStore;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -30,15 +34,31 @@ import java.util.Random;
  */
 public class DetailsFragment extends Fragment implements SensorEventListener{
 
+    private ApplicationDatabase ad;
     private SensorManager mSensorManager;
+    private List<DBStore> stores = new ArrayList<DBStore>();
+    private DBStore storeDetails;
 
     public DetailsFragment() {
         // Required empty public constructor
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        ad = ApplicationDatabase.getInstance(getActivity());
+        stores = ad.dbStoreDao().getAll();
+        Bundle args = getArguments();
+        int index = args.getInt("index", 0);
+        for(DBStore s : stores){
+            if(s.getId()==index){
+                storeDetails = s;
+            }
+
+        }
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_details, container, false);
     }
@@ -46,6 +66,12 @@ public class DetailsFragment extends Fragment implements SensorEventListener{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        TextView address = view.findViewById(R.id.address);
+        TextView contact = view.findViewById(R.id.lblContact);
+
+        address.setText(storeDetails.getAddress());
+        contact.setText(storeDetails.getContact());
 
         ImageButton callButton = view.findViewById(R.id.callImage);
         final TextView textView = view.findViewById(R.id.phone_number);
@@ -61,8 +87,8 @@ public class DetailsFragment extends Fragment implements SensorEventListener{
 
     private void registerSensorListener() {
         mSensorManager.registerListener(this,
-                                        mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE),
-                                        SensorManager.SENSOR_DELAY_FASTEST);
+                mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE),
+                SensorManager.SENSOR_DELAY_FASTEST);
     }
 
     private void unregisterSensorListener() {
@@ -110,18 +136,18 @@ public class DetailsFragment extends Fragment implements SensorEventListener{
             Random random = new Random();
             int discount= this.getRandomDiscount(random, 5, 80, 5);
             Toast.makeText(getContext(),
-                        "Your discount is " +
+                    "Your discount is " +
                             String.valueOf(discount) + "%!",
-                            Toast.LENGTH_SHORT).show();
+                    Toast.LENGTH_SHORT).show();
             this.onStop();
         }
         else if(event.values[2] < -0.7f && event.values[1] > -0.8f && event.values[0] > -0.6f) {
             Random random = new Random();
             int discount= this.getRandomDiscount(random, 5, 80, 5);
             Toast.makeText(getContext(),
-                        "Your discount is " +
-                             String.valueOf(discount) + "%!",
-                             Toast.LENGTH_SHORT).show();
+                    "Your discount is " +
+                            String.valueOf(discount) + "%!",
+                    Toast.LENGTH_SHORT).show();
             this.onStop();
         }
     }
