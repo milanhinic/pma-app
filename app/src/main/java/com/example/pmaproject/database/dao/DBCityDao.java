@@ -19,6 +19,9 @@ public interface DBCityDao {
     @Query("SELECT city.Name FROM city")
     List<String> getAllCitiesNames();
 
+    @Query("SELECT * FROM city WHERE city.Name == :name")
+    DBCity getByName(String name);
+
     @Query("SELECT * FROM city WHERE city.id = :id")
     DBCity getById(long id);
 
