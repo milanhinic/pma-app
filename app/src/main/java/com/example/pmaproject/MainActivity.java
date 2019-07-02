@@ -10,7 +10,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.pmaproject.database.ApplicationDatabase;
+import com.example.pmaproject.database.dao.DBItemDao;
 import com.example.pmaproject.database.entity.DBCity;
+import com.example.pmaproject.database.entity.DBItem;
 import com.example.pmaproject.database.entity.DBStore;
 import com.example.pmaproject.fragments.MapFragment;
 import com.example.pmaproject.fragments.RVFragment;
@@ -79,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         ad = ApplicationDatabase.getInstance(this);
-
+        initData();
         sendRepeatingNotification();
 
         Fragment f = new RVFragment();
@@ -199,122 +201,271 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void initData() {
 
+        if(ad.dbCityDao().getAll().size() == 0 && ad.dbStoreDao().getAll().size() == 0 && ad.dbItemDao().getAll().size() == 0) {
 
-        DBCity city1 = new DBCity.Builder((long) 0 )
-                            .setName("Beograd")
-                            .setLongitude(20.457037)
-                            .setLatitude(44.817690)
-                            .build();
+            DBCity city1 = new DBCity.Builder((long) 0)
+                    .setName("Beograd")
+                    .setLongitude(20.457037)
+                    .setLatitude(44.817690)
+                    .build();
 
-        DBCity city2 = new DBCity.Builder((long) 0 )
-                .setName("Novi Sad")
-                .setLongitude(19.845092)
-                .setLatitude(45.255155)
-                .build();
+            DBCity city2 = new DBCity.Builder((long) 0)
+                    .setName("Novi Sad")
+                    .setLongitude(19.845092)
+                    .setLatitude(45.255155)
+                    .build();
 
-        DBCity city3 = new DBCity.Builder((long) 0 )
-                .setName("Nis")
-                .setLongitude(21.896903)
-                .setLatitude(43.317894)
-                .build();
+            DBCity city3 = new DBCity.Builder((long) 0)
+                    .setName("Nis")
+                    .setLongitude(21.896903)
+                    .setLatitude(43.317894)
+                    .build();
 
 
-        try {
-            ad.dbCityDao().insertCity(city1);
-            ad.dbCityDao().insertCity(city2);
-            ad.dbCityDao().insertCity(city3);
-        } catch (Exception e) {
+            try {
+                ad.dbCityDao().insertCity(city1);
+                ad.dbCityDao().insertCity(city2);
+                ad.dbCityDao().insertCity(city3);
+            } catch (Exception e) {
+
+            }
+
+
+            DBStore storeb1 = new DBStore.Builder((long) 0)
+                    .setName("Zara")
+                    .setAddress("Kneza Mihaila 15")
+                    .setLatitude(44.816080)
+                    .setLongitude(20.458617)
+                    .setDesription("Bringing attractive and responsible fashion, and improve the quality of customer service, are Zara priorities")
+                    .setContact("0112627722")
+                    .setCityId(1)
+                    .build();
+
+            DBStore storeb2 = new DBStore.Builder((long) 0)
+                    .setName("New Yorker")
+                    .setAddress("Bulevar Mihajla Pupina 6")
+                    .setLatitude(44.815236)
+                    .setLongitude(20.436696)
+                    .setDesription("Dress for the moment. - Every moment is unique.")
+                    .setContact("01112601423")
+                    .setCityId(1)
+                    .build();
+
+            DBStore storeb3 = new DBStore.Builder((long) 0)
+                    .setName("Planeta sport")
+                    .setAddress("Kneza Mihaila 21")
+                    .setLatitude(44.816574)
+                    .setLongitude(20.458227)
+                    .setDesription("Sportska radnja za sve")
+                    .setContact("0698788387")
+                    .setCityId(1)
+                    .build();
+
+
+            DBStore storens1 = new DBStore.Builder((long) 0)
+                    .setName("Zara")
+                    .setAddress("Bulevar Mihajla Pupina 1")
+                    .setLatitude(45.253708)
+                    .setLongitude(19.844015)
+                    .setDesription("Bringing attractive and responsible fashion, and improve the quality of customer service, are Zara priorities")
+                    .setContact("0216614575")
+                    .setCityId(2)
+                    .build();
+
+            DBStore storens2 = new DBStore.Builder((long) 0)
+                    .setName("New Yorker")
+                    .setAddress("Sentandrejski put 11")
+                    .setLatitude(45.274725)
+                    .setLongitude(19.827521)
+                    .setDesription("Dress for the moment. - Every moment is unique.")
+                    .setContact("021445816")
+                    .setCityId(2)
+                    .build();
+
+            DBStore storens3 = new DBStore.Builder((long) 0)
+                    .setName("Planeta sport")
+                    .setAddress("Zmaj Jovina 22")
+                    .setLatitude(45.256359)
+                    .setLongitude(19.847589)
+                    .setDesription("Sportska radnja za sve")
+                    .setContact("0698788337")
+                    .setCityId(2)
+                    .build();
+
+
+            DBStore storenis1 = new DBStore.Builder((long) 0)
+                    .setName("Planeta sport")
+                    .setAddress("Obrenoviceva 17")
+                    .setLatitude(43.319275)
+                    .setLongitude(21.895071)
+                    .setDesription("Sportska radnja za sve")
+                    .setContact("0698788368")
+                    .setCityId(3)
+                    .build();
+
+            try {
+                ad.dbStoreDao().insertStore(storeb1);
+                ad.dbStoreDao().insertStore(storeb2);
+                ad.dbStoreDao().insertStore(storeb3);
+                ad.dbStoreDao().insertStore(storens1);
+                ad.dbStoreDao().insertStore(storens2);
+                ad.dbStoreDao().insertStore(storens3);
+                ad.dbStoreDao().insertStore(storenis1);
+
+
+            } catch (Exception e) {
+
+            }
+
+
+            DBItem item1 = new DBItem.Builder((long) 0)
+                    .setName("Jeans")
+                    .setDiscount(20)
+                    .setPrice(1999.99)
+                    .setFromDate("2019-06-01")
+                    .setToDate("2019-06-10")
+                    .setStoreId(1)
+                    .build();
+
+            DBItem item2 = new DBItem.Builder((long) 0)
+                    .setName("Maica")
+                    .setDiscount(10)
+                    .setPrice(2999.99)
+                    .setFromDate("2019-06-13")
+                    .setToDate("2019-06-19")
+                    .setStoreId(1)
+                    .build();
+
+            DBItem item3 = new DBItem.Builder((long) 0)
+                    .setName("Maica")
+                    .setDiscount(10)
+                    .setPrice(3589.99)
+                    .setFromDate("2019-06-13")
+                    .setToDate("2019-06-19")
+                    .setStoreId(2)
+                    .build();
+
+            DBItem item4 = new DBItem.Builder((long) 0)
+                    .setName("Bokserice")
+                    .setDiscount(5)
+                    .setPrice(1000.00)
+                    .setFromDate("2019-05-13")
+                    .setToDate("2019-06-1")
+                    .setStoreId(2)
+                    .build();
+
+            DBItem item5 = new DBItem.Builder((long) 0)
+                    .setName("Maica")
+                    .setDiscount(10)
+                    .setPrice(3589.99)
+                    .setFromDate("2019-06-13")
+                    .setToDate("2019-06-19")
+                    .setStoreId(3)
+                    .build();
+
+            DBItem item6 = new DBItem.Builder((long) 0)
+                    .setName("Bokserice")
+                    .setDiscount(5)
+                    .setPrice(1000.00)
+                    .setFromDate("2019-05-13")
+                    .setToDate("2019-06-1")
+                    .setStoreId(3)
+                    .build();
+
+            DBItem item7 = new DBItem.Builder((long) 0)
+                    .setName("Jeans")
+                    .setDiscount(20)
+                    .setPrice(1999.99)
+                    .setFromDate("2019-06-01")
+                    .setToDate("2019-06-10")
+                    .setStoreId(4)
+                    .build();
+
+            DBItem item8 = new DBItem.Builder((long) 0)
+                    .setName("Maica")
+                    .setDiscount(10)
+                    .setPrice(2999.99)
+                    .setFromDate("2019-06-13")
+                    .setToDate("2019-06-19")
+                    .setStoreId(4)
+                    .build();
+
+            DBItem item9 = new DBItem.Builder((long) 0)
+                    .setName("Maica")
+                    .setDiscount(10)
+                    .setPrice(3589.99)
+                    .setFromDate("2019-06-13")
+                    .setToDate("2019-06-19")
+                    .setStoreId(5)
+                    .build();
+
+            DBItem item10 = new DBItem.Builder((long) 0)
+                    .setName("Bokserice")
+                    .setDiscount(5)
+                    .setPrice(1000.00)
+                    .setFromDate("2019-05-13")
+                    .setToDate("2019-06-1")
+                    .setStoreId(5)
+                    .build();
+
+            DBItem item11 = new DBItem.Builder((long) 0)
+                    .setName("Bokserice")
+                    .setDiscount(5)
+                    .setPrice(1000.00)
+                    .setFromDate("2019-05-13")
+                    .setToDate("2019-06-1")
+                    .setStoreId(6)
+                    .build();
+
+            DBItem item12 = new DBItem.Builder((long) 0)
+                    .setName("Jeans")
+                    .setDiscount(20)
+                    .setPrice(1999.99)
+                    .setFromDate("2019-06-01")
+                    .setToDate("2019-06-10")
+                    .setStoreId(6)
+                    .build();
+
+            DBItem item13 = new DBItem.Builder((long) 0)
+                    .setName("Bokserice")
+                    .setDiscount(5)
+                    .setPrice(1300.00)
+                    .setFromDate("2019-05-13")
+                    .setToDate("2019-06-1")
+                    .setStoreId(7)
+                    .build();
+
+            DBItem item14 = new DBItem.Builder((long) 0)
+                    .setName("Bokserice")
+                    .setDiscount(5)
+                    .setPrice(1500.00)
+                    .setFromDate("2019-05-13")
+                    .setToDate("2019-06-1")
+                    .setStoreId(7)
+                    .build();
+
+            try {
+                ad.dbItemDao().insertItem(item1);
+                ad.dbItemDao().insertItem(item2);
+                ad.dbItemDao().insertItem(item3);
+                ad.dbItemDao().insertItem(item4);
+                ad.dbItemDao().insertItem(item5);
+                ad.dbItemDao().insertItem(item6);
+                ad.dbItemDao().insertItem(item7);
+                ad.dbItemDao().insertItem(item8);
+                ad.dbItemDao().insertItem(item9);
+                ad.dbItemDao().insertItem(item10);
+                ad.dbItemDao().insertItem(item11);
+                ad.dbItemDao().insertItem(item12);
+                ad.dbItemDao().insertItem(item13);
+                ad.dbItemDao().insertItem(item14);
+
+            } catch (Exception e) {
+
+            }
+
 
         }
-
-
-
-        DBStore storeb1 = new DBStore.Builder((long) 0)
-                        .setName("Zara")
-                        .setAddress("Kneza Mihaila 15")
-                        .setLatitude(44.816080)
-                        .setLongitude(20.458617)
-                        .setDesription("Bringing attractive and responsible fashion, and improve the quality of customer service, are Zara priorities")
-                        .setContact("0112627722")
-                        .setCityId(1)
-                        .build();
-
-        DBStore storeb2 = new DBStore.Builder((long) 0)
-                .setName("New Yorker")
-                .setAddress("Bulevar Mihajla Pupina 6")
-                .setLatitude(44.815236)
-                .setLongitude(20.436696)
-                .setDesription("Dress for the moment. - Every moment is unique.")
-                .setContact("01112601423")
-                .setCityId(1)
-                .build();
-
-        DBStore storeb3 = new DBStore.Builder((long) 0)
-                .setName("Planeta sport")
-                .setAddress("Kneza Mihaila 21")
-                .setLatitude(44.816574)
-                .setLongitude(20.458227)
-                .setDesription("Sportska radnja za sve")
-                .setContact("0698788387")
-                .setCityId(1)
-                .build();
-
-
-        DBStore storens1 = new DBStore.Builder((long) 0)
-                .setName("Zara")
-                .setAddress("Bulevar Mihajla Pupina 1")
-                .setLatitude(45.253708)
-                .setLongitude(19.844015)
-                .setDesription("Bringing attractive and responsible fashion, and improve the quality of customer service, are Zara priorities")
-                .setContact("0216614575")
-                .setCityId(2)
-                .build();
-
-        DBStore storens2 = new DBStore.Builder((long) 0)
-                .setName("New Yorker")
-                .setAddress("Sentandrejski put 11")
-                .setLatitude(45.274725)
-                .setLongitude(19.827521)
-                .setDesription("Dress for the moment. - Every moment is unique.")
-                .setContact("021445816")
-                .setCityId(2)
-                .build();
-
-        DBStore storens3 = new DBStore.Builder((long) 0)
-                .setName("Planeta sport")
-                .setAddress("Zmaj Jovina 22")
-                .setLatitude(45.256359)
-                .setLongitude(19.847589)
-                .setDesription("Sportska radnja za sve")
-                .setContact("0698788337")
-                .setCityId(2)
-                .build();
-
-
-        DBStore storenis1 = new DBStore.Builder((long) 0)
-                .setName("Planeta sport")
-                .setAddress("Obrenoviceva 17")
-                .setLatitude(43.319275)
-                .setLongitude(21.895071)
-                .setDesription("Sportska radnja za sve")
-                .setContact("0698788368")
-                .setCityId(3)
-                .build();
-
-        try {
-            ad.dbStoreDao().insertStore(storeb1);
-            ad.dbStoreDao().insertStore(storeb2);
-            ad.dbStoreDao().insertStore(storeb3);
-            ad.dbStoreDao().insertStore(storens1);
-            ad.dbStoreDao().insertStore(storens2);
-            ad.dbStoreDao().insertStore(storens3);
-            ad.dbStoreDao().insertStore(storenis1);
-
-
-        } catch (Exception e) {
-
-        }
-
     }
 
 }

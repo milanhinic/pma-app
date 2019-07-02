@@ -190,23 +190,29 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         ad = ApplicationDatabase.getInstance(this);
 
         List<DBUser> users = ad.dbUserDao().getAll();
-        for(DBUser user: users){
-            if(user.getEmail().equals(email)){
-                if(user.getPassword().equals(password)){
-                    loggedInUser = user;
-                    cancel = false;
-                    break;
+        if(users.size() == 0) {
+            cancel = true;
+        } else {
+
+            for(DBUser user: users){
+                if(user.getEmail().equals(email)){
+                    if(user.getPassword().equals(password)){
+                        loggedInUser = user;
+                        cancel = false;
+                        break;
+                    }
+                    else{
+                        cancel = true;
+                    }
                 }
                 else{
                     cancel = true;
                 }
-            }
-            else{
-                cancel = true;
-            }
 
 
+            }
         }
+
 
         if (cancel) {
             // There was an error; don't attempt login and focus the first

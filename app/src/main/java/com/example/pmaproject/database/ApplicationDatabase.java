@@ -32,7 +32,7 @@ import androidx.room.RoomDatabase;
                       DBLoggedInUser.class,
                       PotentialFavoriteItem.class
         },
-        version = 7,
+        version = 11,
         exportSchema = false)
 public abstract class ApplicationDatabase extends RoomDatabase {
 
