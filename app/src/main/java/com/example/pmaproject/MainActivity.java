@@ -143,6 +143,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return true;
         }
         else if (id == R.id.action_sign_out){
+            DBUser user = ad.dbUserDao().getLoggedInUser(true);
+            user.setLoggedIn(false);
+            ad.dbUserDao().updateUser(user);
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             return true;
         }
 

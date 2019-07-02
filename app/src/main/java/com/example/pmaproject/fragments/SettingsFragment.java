@@ -94,7 +94,7 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
 
                     if(!city.equals("")) {
                         DBCity dbCity =  ad.dbCityDao().getByName(city);
-                        Integer dbCityId = Integer.getInteger(String.valueOf(dbCity.getId()));
+                        Integer dbCityId = Integer.parseInt(String.valueOf(dbCity.getId()));
                         dbUser.setDefaultCity(dbCityId);
                     }
 
