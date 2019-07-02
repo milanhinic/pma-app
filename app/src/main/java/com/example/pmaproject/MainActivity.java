@@ -176,10 +176,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             ft.commit();
         } else if (id == R.id.log_out) {
             // deactivate user
-            DBUser user = ad.dbUserDao().getLoggedInUser(true);
-            user.setLoggedIn(false);
-            ad.dbUserDao().updateUser(user);
-            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+//            DBUser user = ad.dbUserDao().getLoggedInUser(true);
+//            user.setLoggedIn(false);
+//            ad.dbUserDao().updateUser(user);
+//            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
