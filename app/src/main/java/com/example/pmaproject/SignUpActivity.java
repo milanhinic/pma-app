@@ -44,6 +44,7 @@ public class SignUpActivity extends AppCompatActivity {
                                         .setPassword(mPasswordView.getText().toString())
                                         .setDefaultCity(1)
                                         .setPerimetar(30)
+                                        .setLoggedIn(false)
                                         .build();
 
         try {
@@ -51,8 +52,6 @@ public class SignUpActivity extends AppCompatActivity {
         } catch (Exception e) {
 
         }
-
-        List<DBUser> all = ad.dbUserDao().getAll();
 
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }

@@ -16,6 +16,12 @@ public interface DBCityDao {
     @Query("SELECT * FROM city")
     List<DBCity> getAll();
 
+    @Query("SELECT city.Name FROM city")
+    List<String> getAllCitiesNames();
+
+    @Query("SELECT * FROM city WHERE city.id = :id")
+    DBCity getById(long id);
+
     @Insert
     void insertCity(DBCity dbCity);
 

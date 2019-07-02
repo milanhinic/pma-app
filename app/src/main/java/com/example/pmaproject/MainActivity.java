@@ -79,9 +79,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         ad = ApplicationDatabase.getInstance(this);
-        initData();
-        List<DBCity> all = ad.dbCityDao().getAll();
-        System.out.print(all);
 
         sendRepeatingNotification();
 
@@ -175,6 +172,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             ft.replace(R.id.container, f);
             ft.commit();
+        } else if (id == R.id.log_out) {
+            // deactivate user
+            DBUser user = ad.dbUserDao().getLoggedInUser(true);
+            user.setLoggedIn(false);
+            ad.dbUserDao().updateUser(user);
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -196,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void initData() {
 
-        /*
+
         DBCity city1 = new DBCity.Builder((long) 0 )
                             .setName("Beograd")
                             .setLongitude(20.457037)
@@ -224,7 +227,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
 
-        */
+
 
         DBStore storeb1 = new DBStore.Builder((long) 0)
                         .setName("Zara")
@@ -297,6 +300,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .setContact("0698788368")
                 .setCityId(3)
                 .build();
+
+        try {
+            ad.dbStoreDao().insertStore(storeb1);
+            ad.dbStoreDao().insertStore(storeb2);
+            ad.dbStoreDao().insertStore(storeb3);
+            ad.dbStoreDao().insertStore(storens1);
+            ad.dbStoreDao().insertStore(storens2);
+            ad.dbStoreDao().insertStore(storens3);
+            ad.dbStoreDao().insertStore(storenis1);
+
+
+        } catch (Exception e) {
+
+        }
+
     }
 
 }

@@ -68,6 +68,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    DBUser loggedInUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,6 +156,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             return;
         }
 
+
         // Reset errors.
         mEmailView.setError(null);
         mPasswordView.setError(null);
@@ -191,6 +193,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         for(DBUser user: users){
             if(user.getEmail().equals(email)){
                 if(user.getPassword().equals(password)){
+                    loggedInUser = user;
                     cancel = false;
                     break;
                 }
@@ -216,6 +219,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
+            loggedInUser.setLoggedIn(true);
+            ad.dbUserDao().updateUser(loggedInUser);
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);

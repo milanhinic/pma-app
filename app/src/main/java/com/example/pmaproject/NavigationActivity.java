@@ -3,6 +3,7 @@ package com.example.pmaproject;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.pmaproject.database.ApplicationDatabase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -22,12 +23,16 @@ import android.view.MenuItem;
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private ApplicationDatabase ad;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ad = ApplicationDatabase.getInstance(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +100,9 @@ public class NavigationActivity extends AppCompatActivity
 
         } else if (id == R.id.account_nav) {
 
+        } else if(id == R.id.log_out) {
+            // det active user to not active
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -25,7 +25,6 @@ public class ListViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
         ad = ApplicationDatabase.getInstance(this);
-        //initData();
 
         Log.d(TAG, "onCreate: started.");
         initImageBitmaps();

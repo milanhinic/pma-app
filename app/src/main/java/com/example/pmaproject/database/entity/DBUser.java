@@ -28,6 +28,9 @@ public class DBUser {
     @ColumnInfo(name = "perimetar")
     private Integer perimetar;
 
+    @ColumnInfo(name = "Logged In")
+    public boolean loggedIn;
+
     public DBUser() {}
 
     public DBUser(DBUser.Builder builder) {
@@ -38,6 +41,7 @@ public class DBUser {
         password = builder.password;
         defaultCity = builder.defaultCity;
         perimetar = builder.perimetar;
+        loggedIn = builder.loggedIn;
 
     }
 
@@ -98,6 +102,14 @@ public class DBUser {
         this.perimetar = perimetar;
     }
 
+    public boolean isLoggedIn() {
+        return loggedIn;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
+    }
+
     public static class Builder {
 
         private long id;
@@ -107,6 +119,7 @@ public class DBUser {
         private String password;
         private Integer defaultCity;
         private Integer perimetar;
+        public boolean loggedIn;
 
         public Builder(long id) {
             this.id = id;
@@ -142,6 +155,11 @@ public class DBUser {
             return this;
         }
 
+        public Builder setLoggedIn(boolean loggedIn) {
+            this.loggedIn = loggedIn;
+            return this;
+        }
+
         public DBUser build() {
             DBUser user = new DBUser();
             user.firstName = this.firstName;
@@ -150,6 +168,7 @@ public class DBUser {
             user.password = this.password;
             user.defaultCity = this.defaultCity;
             user.perimetar = this.perimetar;
+            user.loggedIn = loggedIn;
             return user;
         }
 
