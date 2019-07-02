@@ -11,9 +11,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.pmaproject.fragments.DetailsFragment;
 
 import java.util.ArrayList;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -56,7 +61,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Log.d(TAG, "onClick: clicked on: " + mImageNames.get(position));
 
 //                Toast.makeText(mContext, mImageNames.get(position), Toast.LENGTH_SHORT).show();
-                mContext.startActivity(new Intent(mContext, DetailsActivity.class));
+//                mContext.startActivity(new Intent(mContext, DetailsActivity.class));
+                Fragment f = new DetailsFragment();
+                FragmentManager fm = ((AppCompatActivity)mContext).getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.addToBackStack(null);
+                ft.replace(R.id.container, f);
+                ft.commit();
             }
         });
     }

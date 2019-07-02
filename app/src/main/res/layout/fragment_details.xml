@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/planet_sport_logo" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/shake"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="278dp"
+        android:layout_marginRight="278dp"
+        android:layout_marginBottom="173dp"
+        android:src="@drawable/shake_phone" />
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="392dp"
+        android:layout_height="59dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="211dp"
+        android:layout_marginBottom="428dp"
+        android:text="@string/address"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/lblContact"
+        android:layout_width="126dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="264dp"
+        android:layout_marginRight="211dp"
+        android:layout_marginBottom="389dp"
+        android:text="@string/lbl_contact"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lblAddress"
+        android:layout_width="133dp"
+        android:layout_height="36dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="258dp"
+        android:layout_marginRight="211dp"
+        android:layout_marginBottom="483dp"
+        android:text="@string/lbl_address"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/phone_number"
+        android:layout_width="177dp"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="211dp"
+        android:layout_marginRight="211dp"
+        android:layout_marginBottom="351dp"
+        android:text="@string/contact_number"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/shakeText"
+        android:layout_width="228dp"
+        android:layout_height="53dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginBottom="197dp"
+        android:text="@string/shakeText"
+        android:textAllCaps="true" />
+
+    <ImageButton
+        android:id="@+id/callImage"
+        android:layout_width="54dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="153dp"
+        android:layout_marginRight="153dp"
+        android:layout_marginBottom="342dp"
+        android:onClick="call"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/calll" />
+
+</RelativeLayout>
