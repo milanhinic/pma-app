@@ -17,13 +17,13 @@ public interface DBPotentialFavoriteDao {
     List<DBPotentialFavorite> getAll();
 
     @Insert
-    void insertUser(DBPotentialFavorite dbPotentialFavorite);
+    void insertPotentialFavorite(DBPotentialFavorite dbPotentialFavorite);
 
     @Update
-    void updateUser(DBPotentialFavorite dbPotentialFavorite);
+    void updatePotentialFavorite(DBPotentialFavorite dbPotentialFavorite);
 
     @Delete
-    void deleteUser(DBPotentialFavorite dbPotentialFavorite);
+    void deletePotentialFavorite(DBPotentialFavorite dbPotentialFavorite);
 
     @Query("DELETE FROM potentialFavourite")
     void deleteAll();

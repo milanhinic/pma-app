@@ -17,13 +17,13 @@ public interface DBCityDao {
     List<DBCity> getAll();
 
     @Insert
-    void insertUser(DBCity dbCity);
+    void insertCity(DBCity dbCity);
 
     @Update
-    void updateUser(DBCity dbCity);
+    void updateCity(DBCity dbCity);
 
     @Delete
-    void deleteUser(DBCity dbCity);
+    void deleteCity(DBCity dbCity);
 
     @Query("DELETE FROM city")
     void deleteAll();

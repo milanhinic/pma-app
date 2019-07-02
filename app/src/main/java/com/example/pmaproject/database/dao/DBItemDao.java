@@ -17,13 +17,13 @@ public interface DBItemDao {
     List<DBItem> getAll();
 
     @Insert
-    void insertUser(DBItem dbItem);
+    void insertItem(DBItem dbItem);
 
     @Update
-    void updateUser(DBItem dbItem);
+    void updateItem(DBItem dbItem);
 
     @Delete
-    void deleteUser(DBItem dbItem);
+    void deleteItem(DBItem dbItem);
 
     @Query("DELETE FROM item")
     void deleteAll();

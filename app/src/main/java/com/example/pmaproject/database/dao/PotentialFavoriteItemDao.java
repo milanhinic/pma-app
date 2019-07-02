@@ -17,13 +17,13 @@ public interface PotentialFavoriteItemDao {
     List<PotentialFavoriteItem> getAll();
 
     @Insert
-    void insertUser(PotentialFavoriteItem potentialFavoriteItem);
+    void insertPotentialFavoriteItem(PotentialFavoriteItem potentialFavoriteItem);
 
     @Update
-    void updateUser(PotentialFavoriteItem potentialFavoriteItem);
+    void updatePotentialFavoriteItem(PotentialFavoriteItem potentialFavoriteItem);
 
     @Delete
-    void deleteUser(PotentialFavoriteItem potentialFavoriteItem);
+    void deletePotentialFavoriteItem(PotentialFavoriteItem potentialFavoriteItem);
 
     @Query("DELETE FROM potentialFavouriteItem")
     void deleteAll();

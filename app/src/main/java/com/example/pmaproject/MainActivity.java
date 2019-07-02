@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.pmaproject.database.ApplicationDatabase;
+import com.example.pmaproject.database.entity.DBCity;
+import com.example.pmaproject.database.entity.DBStore;
 import com.example.pmaproject.fragments.MapFragment;
 import com.example.pmaproject.fragments.RVFragment;
 import com.example.pmaproject.fragments.SettingsFragment;
@@ -58,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -77,8 +78,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-
         ad = ApplicationDatabase.getInstance(this);
+        initData();
+        List<DBCity> all = ad.dbCityDao().getAll();
+        System.out.print(all);
 
         sendRepeatingNotification();
 
@@ -189,6 +192,111 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         alarmManager.setRepeating(AlarmManager.RTC, SystemClock.elapsedRealtime() +
                 startTime, 20*1000, pi);
 
+    }
+
+    private void initData() {
+
+        /*
+        DBCity city1 = new DBCity.Builder((long) 0 )
+                            .setName("Beograd")
+                            .setLongitude(20.457037)
+                            .setLatitude(44.817690)
+                            .build();
+
+        DBCity city2 = new DBCity.Builder((long) 0 )
+                .setName("Novi Sad")
+                .setLongitude(19.845092)
+                .setLatitude(45.255155)
+                .build();
+
+        DBCity city3 = new DBCity.Builder((long) 0 )
+                .setName("Nis")
+                .setLongitude(21.896903)
+                .setLatitude(43.317894)
+                .build();
+
+
+        try {
+            ad.dbCityDao().insertCity(city1);
+            ad.dbCityDao().insertCity(city2);
+            ad.dbCityDao().insertCity(city3);
+        } catch (Exception e) {
+
+        }
+
+        */
+
+        DBStore storeb1 = new DBStore.Builder((long) 0)
+                        .setName("Zara")
+                        .setAddress("Kneza Mihaila 15")
+                        .setLatitude(44.816080)
+                        .setLongitude(20.458617)
+                        .setDesription("Bringing attractive and responsible fashion, and improve the quality of customer service, are Zara priorities")
+                        .setContact("0112627722")
+                        .setCityId(1)
+                        .build();
+
+        DBStore storeb2 = new DBStore.Builder((long) 0)
+                .setName("New Yorker")
+                .setAddress("Bulevar Mihajla Pupina 6")
+                .setLatitude(44.815236)
+                .setLongitude(20.436696)
+                .setDesription("Dress for the moment. - Every moment is unique.")
+                .setContact("01112601423")
+                .setCityId(1)
+                .build();
+
+        DBStore storeb3 = new DBStore.Builder((long) 0)
+                .setName("Planeta sport")
+                .setAddress("Kneza Mihaila 21")
+                .setLatitude(44.816574)
+                .setLongitude(20.458227)
+                .setDesription("Sportska radnja za sve")
+                .setContact("0698788387")
+                .setCityId(1)
+                .build();
+
+
+        DBStore storens1 = new DBStore.Builder((long) 0)
+                .setName("Zara")
+                .setAddress("Bulevar Mihajla Pupina 1")
+                .setLatitude(45.253708)
+                .setLongitude(19.844015)
+                .setDesription("Bringing attractive and responsible fashion, and improve the quality of customer service, are Zara priorities")
+                .setContact("0216614575")
+                .setCityId(2)
+                .build();
+
+        DBStore storens2 = new DBStore.Builder((long) 0)
+                .setName("New Yorker")
+                .setAddress("Sentandrejski put 11")
+                .setLatitude(45.274725)
+                .setLongitude(19.827521)
+                .setDesription("Dress for the moment. - Every moment is unique.")
+                .setContact("021445816")
+                .setCityId(2)
+                .build();
+
+        DBStore storens3 = new DBStore.Builder((long) 0)
+                .setName("Planeta sport")
+                .setAddress("Zmaj Jovina 22")
+                .setLatitude(45.256359)
+                .setLongitude(19.847589)
+                .setDesription("Sportska radnja za sve")
+                .setContact("0698788337")
+                .setCityId(2)
+                .build();
+
+
+        DBStore storenis1 = new DBStore.Builder((long) 0)
+                .setName("Planeta sport")
+                .setAddress("Obrenoviceva 17")
+                .setLatitude(43.319275)
+                .setLongitude(21.895071)
+                .setDesription("Sportska radnja za sve")
+                .setContact("0698788368")
+                .setCityId(3)
+                .build();
     }
 
 }

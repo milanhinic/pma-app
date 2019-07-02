@@ -17,13 +17,13 @@ public interface DBNotificationDao {
     List<DBNotification> getAll();
 
     @Insert
-    void insertUser(DBNotification dbNotification);
+    void insertNotification(DBNotification dbNotification);
 
     @Update
-    void updateUser(DBNotification dbNotification);
+    void updateNotification(DBNotification dbNotification);
 
     @Delete
-    void deleteUser(DBNotification dbNotification);
+    void deleteNotification(DBNotification dbNotification);
 
     @Query("DELETE FROM notification")
     void deleteAll();

@@ -17,13 +17,13 @@ public interface DBStoreDao {
     List<DBStore> getAll();
 
     @Insert
-    void insertUser(DBStore dbStore);
+    void insertStore(DBStore dbStore);
 
     @Update
-    void updateUser(DBStore dbStore);
+    void updateStore(DBStore dbStore);
 
     @Delete
-    void deleteUser(DBStore dbStore);
+    void deleteStore(DBStore dbStore);
 
     @Query("DELETE FROM store")
     void deleteAll();
