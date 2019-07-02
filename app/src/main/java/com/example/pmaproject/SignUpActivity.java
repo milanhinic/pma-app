@@ -11,6 +11,8 @@ import android.widget.EditText;
 import com.example.pmaproject.database.ApplicationDatabase;
 import com.example.pmaproject.database.entity.DBUser;
 
+import java.util.List;
+
 public class SignUpActivity extends AppCompatActivity {
 
     @Override
@@ -36,10 +38,10 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         DBUser user = new DBUser.Builder((long) 0)
-                                        .setFirstName(mFirstView.toString())
-                                        .setLastName(mLastView.toString())
-                                        .setEmail(mEmailView.toString())
-                                        .setPassword(mPasswordView.toString())
+                                        .setFirstName(mFirstView.getText().toString())
+                                        .setLastName(mLastView.getText().toString())
+                                        .setEmail(mEmailView.getText().toString())
+                                        .setPassword(mPasswordView.getText().toString())
                                         .setDefaultCity(1)
                                         .setPerimetar(30)
                                         .build();
@@ -50,7 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         }
 
-
+        List<DBUser> all = ad.dbUserDao().getAll();
 
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }
