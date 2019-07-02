@@ -11,9 +11,16 @@ import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pmaproject.database.ApplicationDatabase;
+import com.example.pmaproject.database.entity.DBStore;
+import com.example.pmaproject.database.entity.DBUser;
+
+import java.util.List;
 import java.util.Random;
 
 public class DetailsActivity extends AppCompatActivity {
@@ -74,10 +81,29 @@ public class DetailsActivity extends AppCompatActivity {
         //mSensorManager.unregisterListener(sensorEventListener);
     }
 
-    /*public void call(View view) {
+   /* public void call(View view) {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         TextView textView = findViewById(R.id.phone_number);
         intent.setData(Uri.parse("tel:"+ textView.getText().toString()));
         startActivity(intent);
     }*/
+
+    public void like(View view) {
+        ApplicationDatabase ad;
+        ad = ApplicationDatabase.getInstance(this);
+        List<DBUser> users = ad.dbUserDao().getAll();
+        TextView name = findViewById(R.id.name);
+        String n = (String)name.getText();
+        for(DBUser u: users){
+            if(u.getLoggedIn()==true){
+                u.setFavorites(n);
+            }
+
+        }
+      //  ImageButton image = findViewById(R.id.like);
+      //  image.setImageResource(R.drawable.heart);
+
+
+
+    }
 }

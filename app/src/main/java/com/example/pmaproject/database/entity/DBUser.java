@@ -28,8 +28,12 @@ public class DBUser {
     @ColumnInfo(name = "perimetar")
     private Integer perimetar;
 
-    @ColumnInfo(name = "Logged In")
+    @ColumnInfo(name = "LoggedIn")
     public boolean loggedIn;
+
+    @ColumnInfo(name = "Favorites")
+    private String favorites;
+
 
     public DBUser() {}
 
@@ -42,6 +46,7 @@ public class DBUser {
         defaultCity = builder.defaultCity;
         perimetar = builder.perimetar;
         loggedIn = builder.loggedIn;
+        favorites = builder.favorites;
 
     }
 
@@ -102,12 +107,20 @@ public class DBUser {
         this.perimetar = perimetar;
     }
 
-    public boolean isLoggedIn() {
+    public boolean getLoggedIn() {
         return loggedIn;
     }
 
     public void setLoggedIn(boolean loggedIn) {
         this.loggedIn = loggedIn;
+    }
+
+    public String getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(String favorites) {
+        this.favorites = favorites;
     }
 
     public static class Builder {
@@ -120,6 +133,7 @@ public class DBUser {
         private Integer defaultCity;
         private Integer perimetar;
         public boolean loggedIn;
+        public  String favorites;
 
         public Builder(long id) {
             this.id = id;
@@ -160,6 +174,11 @@ public class DBUser {
             return this;
         }
 
+        public Builder setfavorites(String favorites) {
+            this.favorites = favorites;
+            return this;
+        }
+
         public DBUser build() {
             DBUser user = new DBUser();
             user.firstName = this.firstName;
@@ -169,6 +188,7 @@ public class DBUser {
             user.defaultCity = this.defaultCity;
             user.perimetar = this.perimetar;
             user.loggedIn = loggedIn;
+            user.favorites = favorites;
             return user;
         }
 

@@ -137,10 +137,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.action_help) {
 
-            setContentView(R.layout.activity_help);
+            startActivity(new Intent(getApplicationContext(), HelpActivity.class));
         }
         else if (id == R.id.action_favorite){
-            return true;
+            List<DBUser> users = ad.dbUserDao().getAll();
+
+            for(DBUser u: users){
+                if(u.getLoggedIn()==true){
+                    String fav = u.getFavorites();
+                    startActivity(new Intent(getApplicationContext(), FavouritesActivity.class));
+
+                }
+
+            }
         }
         else if (id == R.id.action_sign_out){
             DBUser user = ad.dbUserDao().getLoggedInUser(true);

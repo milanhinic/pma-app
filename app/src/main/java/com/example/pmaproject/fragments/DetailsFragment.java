@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.example.pmaproject.R;
 import com.example.pmaproject.database.ApplicationDatabase;
 import com.example.pmaproject.database.entity.DBStore;
+import com.example.pmaproject.database.entity.DBUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,9 +70,11 @@ public class DetailsFragment extends Fragment implements SensorEventListener{
 
         TextView address = view.findViewById(R.id.address);
         TextView contact = view.findViewById(R.id.lblContact);
+        final TextView  name = view.findViewById(R.id.name);
 
         address.setText(storeDetails.getAddress());
         contact.setText(storeDetails.getContact());
+        name.setText(storeDetails.getName());
 
         ImageButton callButton = view.findViewById(R.id.callImage);
         final TextView textView = view.findViewById(R.id.phone_number);
@@ -83,6 +86,29 @@ public class DetailsFragment extends Fragment implements SensorEventListener{
                 startActivity(intent);
             }
         });
+
+        ImageButton like = view.findViewById(R.id.like);
+
+
+        like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ApplicationDatabase ad;
+                ad = ApplicationDatabase.getInstance(getActivity());
+                List<DBUser> users = ad.dbUserDao().getAll();
+
+                for(DBUser u: users){
+                    if(u.getLoggedIn()==true){
+                        u.setFavorites((String)name.getText());
+                    }
+
+                }
+                ImageButton image = view.findViewById(R.id.like);
+                image.setImageResource(R.drawable.heart);
+            }
+        });
+
+
     }
 
     private void registerSensorListener() {
@@ -158,4 +184,5 @@ public class DetailsFragment extends Fragment implements SensorEventListener{
     public int getRandomDiscount(Random r, int start, int end, int step) {
         return r.nextInt((end - start) / step) * step + start;
     }
+
 }

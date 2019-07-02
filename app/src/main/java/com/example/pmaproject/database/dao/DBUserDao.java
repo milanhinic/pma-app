@@ -16,7 +16,7 @@ public interface DBUserDao {
     @Query("SELECT * FROM users")
     List<DBUser> getAll();
 
-    @Query("SELECT * FROM users WHERE users.`Logged In` == :state")
+    @Query("SELECT * FROM users WHERE users.`LoggedIn` == :state")
     DBUser getLoggedInUser(boolean state);
 
     @Insert
